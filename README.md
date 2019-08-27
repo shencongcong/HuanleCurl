@@ -6,11 +6,19 @@
 ## Installing
 
 ```shell
-$ composer require shencongcong/huanleCurl -vvv
+$ composer require shencongcong/huanleCurl ~1.0
 ```
 
 ## Usage
 ```php
+
+require(dirname(__DIR__) . '/vendor/autoload.php');
+
+$config = ['times'=>20,'expire'=>60];
+
+$huanleCurl = Shencongcong\HuanleCurl\HuanleCurl::getInstance($config);
+
+$res = $huanleCurl->huanle_curl_exec(&$curl, $url);
 
 ```
 

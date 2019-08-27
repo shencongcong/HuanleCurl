@@ -23,14 +23,14 @@ class HuanleCurl
 
     private static $instance;
 
-    const NOTICE_PREFIX='notice_';
+    const NOTICE_PREFIX = 'notice_';
 
     private function __construct($config)
     {
-        $this->times = isset($config['times'])?$config['times']:$this->times;
-        $this->expire = isset($config['expire'])?$config['expire']:$this->expire;
-        $this->cacheKey  = isset($config['cacheKey '])?$config['cacheKey ']:$this->cacheKey ;
-        $this->cacheRam = isset($config['cacheRam'])?$config['cacheRam']:$this->cacheRam;
+        $this->times = isset($config['times']) ? $config['times'] : $this->times;
+        $this->expire = isset($config['expire']) ? $config['expire'] : $this->expire;
+        $this->cacheKey = isset($config['cacheKey ']) ? $config['cacheKey '] : $this->cacheKey;
+        $this->cacheRam = isset($config['cacheRam']) ? $config['cacheRam'] : $this->cacheRam;
     }
 
     public static function getInstance($config)
@@ -57,9 +57,9 @@ class HuanleCurl
         }
         if ( $times > $this->times ) {
             // 上报、通知
-            $urlNotice = $this->mcache(self::NOTICE_PREFIX.$url);
-            if(!isset($urlNotice)){
-                $this->mcache(self::NOTICE_PREFIX.$url,1,60);
+            $urlNotice = $this->mcache(self::NOTICE_PREFIX . $url);
+            if ( !isset($urlNotice) ) {
+                $this->mcache(self::NOTICE_PREFIX . $url, 1, 60);
                 // 发送邮件通知
             }
 
